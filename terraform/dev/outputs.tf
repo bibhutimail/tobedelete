@@ -5,7 +5,7 @@ output "vpc_id" {
 }
 
 output "subnet_id" {
-  value = module.vpc.subnet_id
+  value = module.vpc.custom_subnet_id
 }
 
 output "instance_id" {

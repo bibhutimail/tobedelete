@@ -12,4 +12,9 @@ variable "ami" {
   description = "AMI ID for the EC2 instance"
 }
 
+variable "security_group_id" {
+  description = "Security Group ID for the EC2 instance"
+  
+}
+
 # Add any other variables you need here.

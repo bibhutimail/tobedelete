@@ -16,5 +16,7 @@ variable "security_group_id" {
   description = "Security Group ID for the EC2 instance"
   
 }
-
+variable "region_id" {
+  description = "Region of AWS"
+}
 # Add any other variables you need here.

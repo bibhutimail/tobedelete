@@ -1,18 +1,5 @@
 # terraform/dev/main.tf or terraform/uat/main.tf
 
-terraform {
-  required_version = ">= 0.13"
-  backend "s3" {
-    bucket = "web1-terra-state"
-    key    = "terraform-state/dev/terraform.tfstate"  # For UAT, use "terraform-state/uat/terraform.tfstate"
-    region = "us-east-1"
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
 module "vpc" {
   source     = "../modules/vpc"
   vpc_cidr   = "10.0.0.0/16"

@@ -32,5 +32,5 @@ jobs:
     - name: Copy File README.md
       run: |
           ls -l
-          cat terraform/dev/README.md > ./README.md
+          cat terraform/dev/README.md > README.md
          # cp -v terraform/dev/README.md .

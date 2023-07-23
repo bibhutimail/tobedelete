@@ -1,6 +1,17 @@
-name: Generate terraform docs
-on:
-  - pull_request
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'The name of the environment to be deployed'     
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - uat
+        - prod
+permissions:
+  contents: read
 
 jobs:
   docs:

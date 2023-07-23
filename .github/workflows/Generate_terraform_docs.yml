@@ -28,9 +28,9 @@ jobs:
         output-file: ./README.md
         output-method: inject
         git-push: "true"
-      
-    - name: Copy File README.md
-      run: |
-          ls -l
-          cat terraform/dev/README.md > README.md
-         # cp -v terraform/dev/README.md .
+
+    - name: copy file
+      uses: canastro/copy-file-action@master
+      with:
+        source: "terraform/dev/README.md"
+        target: "terraform/dev/README.md"

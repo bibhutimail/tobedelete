@@ -31,5 +31,6 @@ jobs:
       
     - name: Copy File README.md
       run: |
-          # Replace 'source/file/path' and 'destination/file/path' with your actual file paths
+          ls -l
+          set -x
           cp terraform/dev/README.md ./

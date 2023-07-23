@@ -26,6 +26,7 @@ jobs:
       with:
         working-dir: terraform/
         recursive: true
+        recursive-path: modules
         output-file: terraform_docs.md
         output-method: inject
         git-push: "true"

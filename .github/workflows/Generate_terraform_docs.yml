@@ -11,6 +11,7 @@ on:
         - uat
         - prod
 permissions:
+  id-token: write
   contents: read
 
 jobs:

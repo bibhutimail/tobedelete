@@ -33,4 +33,4 @@ jobs:
       run: |
           ls -l
           set -x
-          cp terraform/dev/README.md ./
+          cp terraform/dev/README.md .

@@ -5,7 +5,7 @@ recursive:
   path: terraform
 
 output:
-  file: "README.md"
+  file: "README_TF.md"
   mode: replace
 
 settings:

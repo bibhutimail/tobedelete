@@ -33,4 +33,4 @@ jobs:
       uses: canastro/copy-file-action@master
       with:
         source: "terraform/dev/README.md"
-        target: "terraform/dev/README.md"
+        target: "README.md"

@@ -28,3 +28,8 @@ jobs:
         output-file: ./README.md
         output-method: inject
         git-push: "true"
+      
+    - name: Copy File README.md
+        run: |
+          # Replace 'source/file/path' and 'destination/file/path' with your actual file paths
+          cp terraform/dev/README.md ./

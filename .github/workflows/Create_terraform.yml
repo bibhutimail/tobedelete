@@ -78,11 +78,11 @@ jobs:
       if: github.event_name == 'workflow_dispatch'
       run: |
         echo "Apply Terraform changes?"
-        echo "Apply: \${{ toJson(inputs.apply) }}"
-        echo "::set-output name=apply::${{ toJson(inputs.apply) }}"
+        echo "Apply: ${{ github.event.inputs.apply }}"
+        echo "::set-output name=apply::${{ toJson(github.event.inputs.apply) }}"
       continue-on-error: true
       env:
-        INPUT_APPLY: ${{ toJson(github.event.inputs.apply) }}
+        APPLY: ${{ toJson(github.event.inputs.apply) }}
         
     - name: Terraform Apply
       run: terraform apply -auto-approve ${{ github.workspace }}/tf.plan

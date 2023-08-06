@@ -5,6 +5,7 @@ on:
         description: 'Apply Terraform changes'
         required: true
         default: 'false'  # The checkbox will be unchecked by default
+        options: ['plan', 'apply']
       environment:
         description: 'The name of the environment to be deployed'     
         required: true

@@ -69,7 +69,8 @@ jobs:
       continue-on-error: true
       
     - name: Check Terraform Plan Status
-      run: echo "Terraform plan status: ${{ steps.plan.outcome }}"
+      run: |
+        echo "Terraform plan status: ${{ steps.plan.outcome }}"
       
     - name: Terraform Apply
       run: terraform apply -auto-approve ${{ github.workspace }}/tf.plan

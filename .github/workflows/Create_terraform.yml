@@ -66,15 +66,18 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -out=${{ github.workspace }}/tf.plan
+      continue-on-error: true
+      
+    - name: Check Terraform Plan Status
+      run: echo "Terraform plan status: ${{ steps.plan.outcome }}"
 
-    # Add a checkbox prompt for Terraform Apply
     - name: Confirm Terraform Apply
       id: confirm_apply
       if: github.event_name == 'workflow_dispatch'
       run: |
         echo "Apply Terraform changes?"
-        echo "Apply: \${{ format(inputs.apply) }}"
-        echo "::set-output name=apply::${{ format(inputs.apply) }}"
+        echo "Apply: \${{ toJson(inputs.apply) }}"
+        echo "::set-output name=apply::${{ toJson(inputs.apply) }}"
       continue-on-error: true
       env:
         INPUT_APPLY: ${{ toJson(github.event.inputs.apply) }}

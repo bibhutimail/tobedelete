@@ -5,7 +5,10 @@ on:
         description: 'Apply Terraform changes'
         required: true
         default: 'false'  # The checkbox will be unchecked by default
-        options: ['plan', 'apply']
+        type: choice
+        options:
+        - No-Apply
+        - Apply
       environment:
         description: 'The name of the environment to be deployed'     
         required: true
@@ -90,6 +93,6 @@ jobs:
         APPLY: ${{ toJson(github.event.inputs.apply) }}
         
     - name: Terraform Apply
-      if: steps.confirm_apply.outputs.apply == 'true'
+      if: steps.confirm_apply.outputs.apply == 'Apply'
       run: terraform apply -auto-approve ${{ github.workspace }}/tf.plan
       continue-on-error: false

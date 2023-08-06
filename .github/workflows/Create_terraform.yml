@@ -7,7 +7,7 @@ on:
         default: 'false'  # The checkbox will be unchecked by default
         type: choice
         options:
-        - No-Apply
+        - Not-Apply
         - Apply
       environment:
         description: 'The name of the environment to be deployed'     

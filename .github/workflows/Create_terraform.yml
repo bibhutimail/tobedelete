@@ -67,6 +67,18 @@ jobs:
     - name: Terraform Plan
       run: terraform plan -out=${{ github.workspace }}/tf.plan
 
+    # Add a checkbox prompt for Terraform Apply
+    - name: Confirm Terraform Apply
+      id: confirm_apply
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        echo "Apply Terraform changes?"
+        echo "Apply: \${{ format(inputs.apply) }}"
+        echo "::set-output name=apply::${{ format(inputs.apply) }}"
+      continue-on-error: true
+      env:
+        INPUT_APPLY: ${{ toJson(github.event.inputs.apply) }}
+
       # On push to "dev", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
